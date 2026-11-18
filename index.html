@@ -3,658 +3,356 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biology Spot</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biology Spot Arcade</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f7ed;
-  color: #20352a;
-}
-
-header {
-  background: #173f2b;
-  color: white;
-  padding: 25px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 38px;
-  margin: 5px;
-  letter-spacing: 2px;
-}
-
-nav {
-  background: #245b3b;
-  padding: 14px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 12px;
-  font-weight: bold;
-}
-
-.hero {
-  text-align: center;
-  padding: 45px 15px;
-  background: linear-gradient(135deg, #d9edcf, #f4f8dc);
-}
-
-.hero h2 {
-  font-size: 34px;
-}
-
-.hero p {
-  font-size: 17px;
-}
-
-section {
-  padding: 30px 6%;
-}
-
-.section-title {
-  font-size: 27px;
-  margin-bottom: 18px;
-}
-
-.topics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 18px;
-}
-
-.topic {
-  background: white;
-  padding: 23px;
-  border-radius: 15px;
-  box-shadow: 0 3px 12px #00000012;
-}
-
-.topic h3 {
-  margin-top: 0;
-}
-
-.arcade {
-  background: #111c19;
-  color: white;
-  padding: 35px 6%;
-}
-
-.arcade h2 {
-  font-size: 32px;
-}
-
-.search {
-  width: 100%;
-  max-width: 550px;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  margin: 10px 0 20px;
-}
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.categories button {
-  background: #294b3a;
-  color: white;
-  border: 1px solid #527c60;
-  padding: 10px 17px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.categories button.active,
-.categories button:hover {
-  background: #7cbf68;
-  color: #102316;
-}
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 17px;
-}
-
-.game-card {
-  background: #20372b;
-  border: 1px solid #3d5c48;
-  padding: 20px;
-  border-radius: 14px;
-  text-align: center;
-}
-
-.game-card .emoji {
-  font-size: 45px;
-}
-
-.game-card h3 {
-  margin: 10px 0;
-}
-
-.game-card button,
-.play-button {
-  background: #8bd477;
-  border: none;
-  border-radius: 8px;
-  padding: 11px 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.game-card button:hover,
-.play-button:hover {
-  background: #b2ed9d;
-}
-
-#gameArea {
-  display: none;
-  background: #f5f8ef;
-  color: #20352a;
-  padding: 25px;
-  margin-top: 30px;
-  border-radius: 15px;
-  text-align: center;
-}
-
-#gameArea button {
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-#gameArea h2 {
-  margin-top: 0;
-}
-
-#gameArea .big {
-  font-size: 55px;
-}
-
-footer {
-  background: #173f2b;
-  color: white;
-  padding: 25px;
-  text-align: center;
-}
-
-@media(max-width: 600px) {
-  header h1 {
-    font-size: 29px;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 7px;
-  }
-}
+*{box-sizing:border-box}
+body{margin:0;background:#10151d;color:white;font-family:Arial,sans-serif}
+header{padding:24px;text-align:center;background:#173f2b}
+header h1{margin:0;font-size:34px}
+nav{background:#245b3b;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:12px;font-weight:bold}
+.hero{text-align:center;padding:35px 15px;background:linear-gradient(120deg,#173f2b,#263b31)}
+.hero h2{font-size:30px}
+main{max-width:1150px;margin:auto;padding:25px 16px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+input{padding:13px;border-radius:9px;border:0;font-size:16px;flex:1;min-width:180px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{background:#26394a;color:white;border:1px solid #53677a;padding:10px 16px;border-radius:20px;cursor:pointer}
+.filters button.active{background:#86d66d;color:#142015}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}
+.card{background:#202b38;border:1px solid #36495c;border-radius:15px;overflow:hidden}
+.art{height:125px;display:grid;place-items:center;font-size:65px;background:linear-gradient(135deg,#294d43,#1d3045)}
+.info{padding:16px}
+.info h3{margin:0 0 8px}
+.info p{color:#c2cbd4;min-height:38px;font-size:14px}
+.play{background:#86d66d;color:#102015;border:0;padding:11px 17px;border-radius:8px;font-weight:bold;cursor:pointer;width:100%}
+.play:hover{background:#b5f39f}
+#gameScreen{display:none;background:#1b2733;border:1px solid #526476;border-radius:15px;padding:16px;margin-top:25px;text-align:center}
+#gameScreen h2{margin-top:4px}
+#gameCanvas{background:#0c1420;width:100%;max-width:750px;height:auto;border:2px solid #516477;border-radius:10px;display:block;margin:12px auto;touch-action:none}
+.gameControls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px}
+.gameControls button{padding:10px 15px;border:0;border-radius:8px;cursor:pointer;font-weight:bold}
+#status{color:#bdeba9;font-weight:bold}
+.hint{font-size:13px;color:#b9c5d1}
+footer{text-align:center;padding:25px;background:#173f2b;margin-top:40px}
+.hidden{display:none!important}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>🌿 BIOLOGY SPOT</h1>
-  <p>Explore. Discover. Play.</p>
+<h1>🌿 BIOLOGY SPOT</h1>
+<p>Explore. Discover. Play.</p>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#topics">Biology</a>
-  <a href="#arcade">Games</a>
+<a href="#home">Home</a>
+<a href="#arcade">Arcade</a>
 </nav>
 
 <div class="hero" id="home">
-  <h2>Welcome to Biology Spot!</h2>
-  <p>Explore the world of science, discover interesting facts, and enjoy the arcade.</p>
+<h2>Welcome to Biology Spot!</h2>
+<p>Discover something new, then jump into the arcade.</p>
 </div>
 
-<section id="topics">
-  <h2 class="section-title">Explore Biology</h2>
+<main id="arcade">
+<h2>🎮 The .IO Arcade</h2>
+<p>Choose a game. Beat your score. Try again!</p>
 
-  <div class="topics">
-    <div class="topic">
-      <h3>🧬 Genetics</h3>
-      <p>Discover DNA, genes, and how traits are passed down.</p>
-    </div>
-
-    <div class="topic">
-      <h3>🫀 Human Biology</h3>
-      <p>Explore the human body and its amazing systems.</p>
-    </div>
-
-    <div class="topic">
-      <h3>🌎 Ecosystems</h3>
-      <p>Learn about animals, plants, habitats, and nature.</p>
-    </div>
-
-    <div class="topic">
-      <h3>🔬 Cells</h3>
-      <p>Take a closer look at the tiny building blocks of life.</p>
-    </div>
-  </div>
-</section>
-
-<div class="arcade" id="arcade">
-  <h2>🎮 The Biology Spot Arcade</h2>
-  <p>Pick a game and have fun!</p>
-
-  <input
-    class="search"
-    id="search"
-    placeholder="🔎 Search games..."
-    oninput="filterGames()"
-  >
-
-  <div class="categories">
-    <button class="active" onclick="setCategory('All', this)">All Games</button>
-    <button onclick="setCategory('Puzzle', this)">Puzzle</button>
-    <button onclick="setCategory('Action', this)">Action</button>
-    <button onclick="setCategory('Memory', this)">Memory</button>
-  </div>
-
-  <div class="game-grid" id="gameGrid">
-
-    <div class="game-card" data-name="2048" data-category="Puzzle">
-      <div class="emoji">🔢</div>
-      <h3>2048</h3>
-      <p>Combine numbers to reach 2048.</p>
-      <button onclick="startGame('2048')">Play Game</button>
-    </div>
-
-    <div class="game-card" data-name="Click Rush" data-category="Action">
-      <div class="emoji">⚡</div>
-      <h3>Click Rush</h3>
-      <p>Click as many times as possible!</p>
-      <button onclick="startGame('Click Rush')">Play Game</button>
-    </div>
-
-    <div class="game-card" data-name="Memory Match" data-category="Memory">
-      <div class="emoji">🧠</div>
-      <h3>Memory Match</h3>
-      <p>Find matching pairs of cards.</p>
-      <button onclick="startGame('Memory Match')">Play Game</button>
-    </div>
-
-    <div class="game-card" data-name="Number Guess" data-category="Puzzle">
-      <div class="emoji">🎯</div>
-      <h3>Number Guess</h3>
-      <p>Try to guess the secret number.</p>
-      <button onclick="startGame('Number Guess')">Play Game</button>
-    </div>
-
-    <div class="game-card" data-name="Reaction Test" data-category="Action">
-      <div class="emoji">🚀</div>
-      <h3>Reaction Test</h3>
-      <p>Test how quickly you can react.</p>
-      <button onclick="startGame('Reaction Test')">Play Game</button>
-    </div>
-
-  </div>
-
-  <div id="gameArea">
-    <button onclick="closeGame()">✖ Close Game</button>
-    <div id="gameContent"></div>
-  </div>
+<div class="tools">
+<input id="search" placeholder="🔎 Search games..." oninput="filterGames()">
 </div>
+
+<div class="filters">
+<button class="active" onclick="setFilter('All',this)">All Games</button>
+<button onclick="setFilter('Territory',this)">Territory</button>
+<button onclick="setFilter('Snake',this)">Snake</button>
+<button onclick="setFilter('Survival',this)">Survival</button>
+<button onclick="setFilter('Arena',this)">Arena</button>
+</div>
+
+<div class="grid" id="gameGrid">
+
+<div class="card" data-category="Territory" data-name="Paper Land">
+<div class="art">🟦</div>
+<div class="info">
+<h3>Paper Land</h3>
+<p>Claim territory and try to fill the board.</p>
+<button class="play" onclick="startGame('territory')">PLAY NOW</button>
+</div>
+</div>
+
+<div class="card" data-category="Snake" data-name="Slither Snake">
+<div class="art">🐍</div>
+<div class="info">
+<h3>Slither Snake</h3>
+<p>Eat glowing dots and grow as long as you can.</p>
+<button class="play" onclick="startGame('snake')">PLAY NOW</button>
+</div>
+</div>
+
+<div class="card" data-category="Arena" data-name="Blob Arena">
+<div class="art">🟢</div>
+<div class="info">
+<h3>Blob Arena</h3>
+<p>Collect orbs, grow bigger, and avoid the bots.</p>
+<button class="play" onclick="startGame('blob')">PLAY NOW</button>
+</div>
+</div>
+
+<div class="card" data-category="Survival" data-name="Dodge Rush">
+<div class="art">☄️</div>
+<div class="info">
+<h3>Dodge Rush</h3>
+<p>Dodge falling objects and survive for as long as possible.</p>
+<button class="play" onclick="startGame('dodge')">PLAY NOW</button>
+</div>
+</div>
+
+</div>
+
+<div id="gameScreen">
+<button onclick="closeGame()" style="float:right">✖ Close</button>
+<h2 id="gameTitle">Game</h2>
+<p id="status">Ready?</p>
+<canvas id="gameCanvas" width="750" height="450"></canvas>
+<p class="hint" id="instructions"></p>
+<div class="gameControls">
+<button onclick="restartGame()">↻ Restart</button>
+<button onclick="closeGame()">Back to games</button>
+</div>
+</div>
+</main>
 
 <footer>
-  <h3>🌿 BIOLOGY SPOT</h3>
-  <p>A place to explore, discover, and play.</p>
+<h3>🌿 BIOLOGY SPOT ARCADE</h3>
+<p>Explore. Discover. Play.</p>
 </footer>
 
 <script>
-let currentCategory = "All";
-let clickCount = 0;
-let clickTimer;
-let secretNumber = 0;
-let reactionReady = false;
-let reactionStart = 0;
-let reactionTimer;
+const canvas=document.getElementById("gameCanvas");
+const ctx=canvas.getContext("2d");
+const screen=document.getElementById("gameScreen");
+const statusText=document.getElementById("status");
+const instructions=document.getElementById("instructions");
+const title=document.getElementById("gameTitle");
 
-function setCategory(category, button) {
-  currentCategory = category;
+let game="";
+let timer=null;
+let keys={};
+let state={};
+let pointer={x:375,y:225};
+let running=false;
 
-  document.querySelectorAll(".categories button")
-    .forEach(b => b.classList.remove("active"));
-
-  button.classList.add("active");
-  filterGames();
+function setFilter(category,button){
+ document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ filterGames(category);
 }
-
-function filterGames() {
-  const search = document.getElementById("search").value.toLowerCase();
-
-  document.querySelectorAll(".game-card").forEach(card => {
-    const name = card.dataset.name.toLowerCase();
-    const category = card.dataset.category;
-
-    const matchesSearch = name.includes(search);
-    const matchesCategory =
-      currentCategory === "All" || category === currentCategory;
-
-    card.style.display =
-      matchesSearch && matchesCategory ? "block" : "none";
-  });
+function filterGames(category){
+ const selected=category||document.querySelector(".filters button.active").textContent;
+ const search=document.getElementById("search").value.toLowerCase();
+ document.querySelectorAll(".card").forEach(card=>{
+  const matches=selected==="All Games"||selected==="All"||card.dataset.category===selected;
+  card.style.display=matches&&card.dataset.name.toLowerCase().includes(search)?"block":"none";
+ });
 }
-
-function startGame(name) {
-  const area = document.getElementById("gameArea");
-  const content = document.getElementById("gameContent");
-
-  area.style.display = "block";
-  content.innerHTML = "";
-
-  if (name === "Click Rush") {
-    clickCount = 0;
-
-    content.innerHTML = `
-      <h2>⚡ Click Rush</h2>
-      <p>Click the button as many times as you can in 10 seconds!</p>
-      <h1 id="clickScore">0</h1>
-      <button onclick="clickGame()" id="clickButton">CLICK ME!</button>
-      <p id="clickMessage">Press start to begin.</p>
-      <button onclick="startGame('Click Rush')">Restart</button>
-    `;
-    clearInterval(clickTimer);
-    document.getElementById("clickButton").disabled = true;
-    document.getElementById("clickMessage").innerText = "Press start to begin.";
-    document.getElementById("clickButton").insertAdjacentHTML(
-      "afterend",
-      '<button onclick="beginClickGame()">Start</button>'
-    );
-  }
-
-  else if (name === "Number Guess") {
-    secretNumber = Math.floor(Math.random() * 50) + 1;
-
-    content.innerHTML = `
-      <h2>🎯 Number Guess</h2>
-      <p>Guess a number between 1 and 50.</p>
-      <input id="guess" type="number" min="1" max="50">
-      <button onclick="checkGuess()">Guess</button>
-      <p id="guessMessage"></p>
-    `;
-  }
-
-  else if (name === "Memory Match") {
-    let cards = ["🐸","🐸","🌻","🌻","🦋","🦋","🐢","🐢"];
-    cards.sort(() => Math.random() - 0.5);
-
-    content.innerHTML = `
-      <h2>🧠 Memory Match</h2>
-      <p>Find all four matching pairs!</p>
-      <div id="memoryBoard" style="display:grid;grid-template-columns:repeat(4,65px);gap:8px;justify-content:center;"></div>
-      <p id="memoryMessage">Find the matching cards.</p>
-    `;
-
-    let first = null;
-    let lock = false;
-    let matches = 0;
-
-    const board = document.getElementById("memoryBoard");
-
-    cards.forEach((symbol, index) => {
-      const button = document.createElement("button");
-      button.style.fontSize = "26px";
-      button.style.width = "65px";
-      button.style.height = "65px";
-      button.textContent = "?";
-
-      button.onclick = () => {
-        if (lock || button.textContent !== "?") return;
-
-        button.textContent = symbol;
-
-        if (!first) {
-          first = button;
-        } else {
-          if (first.textContent === button.textContent) {
-            matches++;
-            first.disabled = true;
-            button.disabled = true;
-            first = null;
-
-            if (matches === 4) {
-              document.getElementById("memoryMessage").textContent =
-                "🎉 You found every pair!";
-            }
-          } else {
-            lock = true;
-            const previous = first;
-            first = null;
-
-            setTimeout(() => {
-              previous.textContent = "?";
-              button.textContent = "?";
-              lock = false;
-            }, 800);
-          }
-        }
-      };
-
-      board.appendChild(button);
-    });
-  }
-
-  else if (name === "Reaction Test") {
-    content.innerHTML = `
-      <h2>🚀 Reaction Test</h2>
-      <p>Wait until the box turns green, then click it!</p>
-      <button id="reactionButton" style="width:220px;height:120px;background:#d65b5b;color:white;font-size:20px;" onclick="reactionClick()">START</button>
-      <p id="reactionMessage"></p>
-    `;
-
-    reactionReady = false;
-    clearTimeout(reactionTimer);
-  }
-
-  else if (name === "2048") {
-    start2048();
-  }
+function startGame(name){
+ game=name;
+ screen.style.display="block";
+ screen.scrollIntoView({behavior:"smooth",block:"start"});
+ restartGame();
 }
-
-function beginClickGame() {
-  clickCount = 0;
-  const score = document.getElementById("clickScore");
-  const button = document.getElementById("clickButton");
-  const message = document.getElementById("clickMessage");
-
-  if (!score || !button || !message) return;
-
-  score.textContent = "0";
-  button.disabled = false;
-  message.textContent = "GO!";
-
-  clearInterval(clickTimer);
-
-  let seconds = 10;
-  clickTimer = setInterval(() => {
-    seconds--;
-    message.textContent = seconds + " seconds left!";
-
-    if (seconds <= 0) {
-      clearInterval(clickTimer);
-      button.disabled = true;
-      message.textContent = "Time is up! Your score: " + clickCount;
-    }
-  }, 1000);
+function closeGame(){
+ running=false;
+ clearInterval(timer);
+ screen.style.display="none";
 }
-
-function clickGame() {
-  clickCount++;
-  document.getElementById("clickScore").textContent = clickCount;
+function restartGame(){
+ clearInterval(timer);
+ running=true;
+ keys={};
+ if(game==="territory") initTerritory();
+ if(game==="snake") initSnake();
+ if(game==="blob") initBlob();
+ if(game==="dodge") initDodge();
+ timer=setInterval(update,45);
 }
-
-function checkGuess() {
-  const guess = Number(document.getElementById("guess").value);
-  const message = document.getElementById("guessMessage");
-
-  if (!guess || guess < 1 || guess > 50) {
-    message.textContent = "Enter a number from 1 to 50.";
-  } else if (guess === secretNumber) {
-    message.textContent = "🎉 Correct! You got it!";
-  } else if (guess < secretNumber) {
-    message.textContent = "Too low! Try again.";
-  } else {
-    message.textContent = "Too high! Try again.";
-  }
+function endGame(message){
+ running=false;
+ statusText.textContent=message+" Press Restart to try again!";
 }
-
-function reactionClick() {
-  const button = document.getElementById("reactionButton");
-  const message = document.getElementById("reactionMessage");
-
-  if (!reactionReady) {
-    if (button.textContent === "START") {
-      button.textContent = "WAIT...";
-      button.style.background = "#d65b5b";
-
-      reactionTimer = setTimeout(() => {
-        reactionReady = true;
-        reactionStart = Date.now();
-        button.textContent = "CLICK NOW!";
-        button.style.background = "#55ad4f";
-      }, 1500 + Math.random() * 3000);
-    } else {
-      clearTimeout(reactionTimer);
-      button.textContent = "Too early! Try again.";
-      message.textContent = "Wait for green next time.";
-      reactionReady = false;
-    }
-  } else {
-    const time = Date.now() - reactionStart;
-    button.textContent = "START";
-    button.style.background = "#d65b5b";
-    message.textContent = "Your reaction time: " + time + " ms!";
-    reactionReady = false;
-  }
+function update(){
+ if(!running)return;
+ if(game==="territory") drawTerritory();
+ if(game==="snake") drawSnake();
+ if(game==="blob") drawBlob();
+ if(game==="dodge") drawDodge();
 }
-
-let board2048 = [];
-
-function start2048() {
-  board2048 = Array(16).fill(0);
-  add2048();
-  add2048();
-
-  document.getElementById("gameContent").innerHTML = `
-    <h2>🔢 2048</h2>
-    <p>Use the arrow keys to combine matching numbers.</p>
-    <h3 id="score2048">Score: 0</h3>
-    <div id="board2048" style="display:grid;grid-template-columns:repeat(4,65px);gap:6px;justify-content:center;"></div>
-    <p>Use your keyboard arrow keys to play.</p>
-    <button onclick="start2048()">Restart</button>
-  `;
-
-  draw2048();
-}
-
-function add2048() {
-  let empty = board2048.map((v,i) => v === 0 ? i : -1).filter(i => i >= 0);
-  if (empty.length) {
-    let position = empty[Math.floor(Math.random() * empty.length)];
-    board2048[position] = Math.random() < 0.9 ? 2 : 4;
-  }
-}
-
-function draw2048() {
-  const board = document.getElementById("board2048");
-  if (!board) return;
-
-  board.innerHTML = "";
-
-  board2048.forEach(value => {
-    const cell = document.createElement("div");
-    cell.textContent = value || "";
-    cell.style.width = "65px";
-    cell.style.height = "65px";
-    cell.style.display = "grid";
-    cell.style.placeItems = "center";
-    cell.style.background = value ? "#c9dfb9" : "#dce7d5";
-    cell.style.borderRadius = "8px";
-    cell.style.fontSize = "22px";
-    cell.style.fontWeight = "bold";
-    board.appendChild(cell);
-  });
-
-  document.getElementById("score2048").textContent =
-    "Score: " + board2048.reduce((a,b) => a+b, 0);
-}
-
-function move2048(direction) {
-  let old = board2048.join(",");
-
-  for (let line = 0; line < 4; line++) {
-    let indexes = [];
-
-    for (let i = 0; i < 4; i++) {
-      if (direction === "left") indexes.push(line*4+i);
-      if (direction === "right") indexes.push(line*4+3-i);
-      if (direction === "up") indexes.push(i*4+line);
-      if (direction === "down") indexes.push((3-i)*4+line);
-    }
-
-    let values = indexes.map(i => board2048[i]).filter(v => v);
-    let merged = [];
-
-    for (let i = 0; i < values.length; i++) {
-      if (values[i] === values[i+1]) {
-        merged.push(values[i]*2);
-        i++;
-      } else {
-        merged.push(values[i]);
-      }
-    }
-
-    while (merged.length < 4) merged.push(0);
-
-    indexes.forEach((index, i) => board2048[index] = merged[i]);
-  }
-
-  if (old !== board2048.join(",")) add2048();
-  draw2048();
-}
-
-document.addEventListener("keydown", event => {
-  if (document.getElementById("gameArea").style.display !== "block") return;
-
-  const directions = {
-    ArrowLeft: "left",
-    ArrowRight: "right",
-    ArrowUp: "up",
-    ArrowDown: "down"
-  };
-
-  if (directions[event.key]) {
-    event.preventDefault();
-    move2048(directions[event.key]);
-  }
+document.addEventListener("keydown",e=>{
+ keys[e.key.toLowerCase()]=true;
+ if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key))e.preventDefault();
+});
+document.addEventListener("keyup",e=>keys[e.key.toLowerCase()]=false);
+canvas.addEventListener("pointermove",e=>{
+ const r=canvas.getBoundingClientRect();
+ pointer.x=(e.clientX-r.left)*canvas.width/r.width;
+ pointer.y=(e.clientY-r.top)*canvas.height/r.height;
+});
+canvas.addEventListener("pointerdown",e=>{
+ const r=canvas.getBoundingClientRect();
+ pointer.x=(e.clientX-r.left)*canvas.width/r.width;
+ pointer.y=(e.clientY-r.top)*canvas.height/r.height;
+ if(game==="dodge"&&state.player)state.player.x=pointer.x;
 });
 
-function closeGame() {
-  document.getElementById("gameArea").style.display = "none";
-  clearInterval(clickTimer);
-  clearTimeout(reactionTimer);
-  reactionReady = false;
+/* PAPER-STYLE TERRITORY GAME */
+function initTerritory(){
+ title.textContent="🟦 Paper Land";
+ instructions.textContent="Use arrow keys or WASD. Leave your blue area, then return to claim territory.";
+ const cols=30,rows=18;
+ state={cols,rows,size:25,board:Array(cols*rows).fill(0),x:14,y:8,dir:{x:1,y:0},trail:[],score:0,tick:0};
+ for(let y=6;y<=10;y++)for(let x=11;x<=17;x++)state.board[y*cols+x]=1;
+ statusText.textContent="Territory: 7%";
+}
+function drawTerritory(){
+ let s=state;
+ s.tick++;
+ if(s.tick%3!==0)return;
+ if(keys.arrowup||keys.w)s.dir={x:0,y:-1};
+ if(keys.arrowdown||keys.s)s.dir={x:0,y:1};
+ if(keys.arrowleft||keys.a)s.dir={x:-1,y:0};
+ if(keys.arrowright||keys.d)s.dir={x:1,y:0};
+ let nx=s.x+s.dir.x,ny=s.y+s.dir.y;
+ if(nx<0||ny<0||nx>=s.cols||ny>=s.rows){endGame("You hit the edge!");return;}
+ s.x=nx;s.y=ny;
+ let index=ny*s.cols+nx;
+ if(s.board[index]===0){
+  if(s.trail.some(p=>p.x===nx&&p.y===ny)){endGame("You crossed your trail!");return;}
+  s.trail.push({x:nx,y:ny});
+ }else if(s.trail.length){
+  s.trail.forEach(p=>s.board[p.y*s.cols+p.x]=1);
+  s.trail=[];
+  s.score=s.board.filter(v=>v===1).length;
+  statusText.textContent="Territory: "+Math.round(s.score/(s.cols*s.rows)*100)+"%";
+  if(s.score===s.cols*s.rows){endGame("You captured the whole board!");return;}
+ }
+ ctx.fillStyle="#101b29";ctx.fillRect(0,0,750,450);
+ for(let y=0;y<s.rows;y++)for(let x=0;x<s.cols;x++){
+  let i=y*s.cols+x;
+  ctx.fillStyle=s.board[i]?"#367bc3":"#263546";
+  if(s.trail.some(p=>p.x===x&&p.y===y))ctx.fillStyle="#f6c84c";
+  ctx.fillRect(x*25+1,y*25+1,23,23);
+ }
+ ctx.fillStyle="#8fe2ff";ctx.fillRect(s.x*25+2,s.y*25+2,21,21);
+}
+
+/* SLITHER-STYLE SNAKE GAME */
+function initSnake(){
+ title.textContent="🐍 Slither Snake";
+ instructions.textContent="Use arrow keys or WASD to steer. Eat the glowing dots. Avoid your own tail.";
+ state={snake:[{x:12,y:9},{x:11,y:9},{x:10,y:9}],dir:{x:1,y:0},food:{x:20,y:9},tick:0,score:0};
+ statusText.textContent="Score: 0";
+}
+function drawSnake(){
+ let s=state;
+ s.tick++;
+ if(s.tick%3!==0)return;
+ if((keys.arrowup||keys.w)&&s.dir.y!==1)s.dir={x:0,y:-1};
+ if((keys.arrowdown||keys.s)&&s.dir.y!==-1)s.dir={x:0,y:1};
+ if((keys.arrowleft||keys.a)&&s.dir.x!==1)s.dir={x:-1,y:0};
+ if((keys.arrowright||keys.d)&&s.dir.x!==-1)s.dir={x:1,y:0};
+ let head={x:s.snake[0].x+s.dir.x,y:s.snake[0].y+s.dir.y};
+ if(head.x<0||head.y<0||head.x>=30||head.y>=18||s.snake.some(p=>p.x===head.x&&p.y===head.y)){
+  endGame("Game over! Your score was "+s.score);return;
+ }
+ s.snake.unshift(head);
+ if(head.x===s.food.x&&head.y===s.food.y){
+  s.score++;
+  s.food={x:Math.floor(Math.random()*30),y:Math.floor(Math.random()*18)};
+  statusText.textContent="Score: "+s.score;
+ }else s.snake.pop();
+ ctx.fillStyle="#101b29";ctx.fillRect(0,0,750,450);
+ ctx.fillStyle="#ffcf57";ctx.beginPath();ctx.arc(s.food.x*25+12,s.food.y*25+12,9,0,Math.PI*2);ctx.fill();
+ s.snake.forEach((p,i)=>{
+  ctx.fillStyle=i===0?"#9bea70":"#399b68";
+  ctx.beginPath();ctx.roundRect(p.x*25+2,p.y*25+2,21,21,6);ctx.fill();
+ });
+}
+
+/* AGAR-STYLE BLOB ARENA */
+function initBlob(){
+ title.textContent="🟢 Blob Arena";
+ instructions.textContent="Move your mouse or finger to steer. Collect little orbs and avoid the red bots.";
+ state={player:{x:375,y:225,r:16},orbs:[],bots:[],score:0};
+ for(let i=0;i<55;i++)state.orbs.push({x:Math.random()*710+20,y:Math.random()*410+20,r:4});
+ for(let i=0;i<5;i++)state.bots.push({x:Math.random()*650+50,y:Math.random()*350+50,r:13,vx:Math.random()*2-1,vy:Math.random()*2-1});
+ pointer={x:375,y:225};
+ statusText.textContent="Orbs collected: 0";
+}
+function drawBlob(){
+ let s=state,p=s.player;
+ let dx=pointer.x-p.x,dy=pointer.y-p.y,d=Math.hypot(dx,dy);
+ if(d>3){p.x+=dx/d*2.7;p.y+=dy/d*2.7;}
+ p.x=Math.max(p.r,Math.min(750-p.r,p.x));
+ p.y=Math.max(p.r,Math.min(450-p.r,p.y));
+ s.orbs.forEach((o,i)=>{
+  if(Math.hypot(p.x-o.x,p.y-o.y)<p.r+o.r){
+   s.orbs.splice(i,1);p.r=Math.min(55,p.r+0.7);s.score++;
+   statusText.textContent="Orbs collected: "+s.score;
+   s.orbs.push({x:Math.random()*710+20,y:Math.random()*410+20,r:4});
+  }
+ });
+ s.bots.forEach(b=>{
+  b.x+=b.vx;b.y+=b.vy;
+  if(b.x<20||b.x>730)b.vx*=-1;
+  if(b.y<20||b.y>430)b.vy*=-1;
+  if(Math.hypot(p.x-b.x,p.y-b.y)<p.r+b.r){
+   endGame("A bot caught you! You collected "+s.score+" orbs.");return;
+  }
+ });
+ ctx.fillStyle="#101b29";ctx.fillRect(0,0,750,450);
+ s.orbs.forEach(o=>{
+  ctx.fillStyle="#f6d85c";ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fill();
+ });
+ s.bots.forEach(b=>{
+  ctx.fillStyle="#e45b68";ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+ });
+ ctx.fillStyle="#75df83";ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+ ctx.fillStyle="white";ctx.font="12px Arial";ctx.fillText("YOU",p.x-12,p.y+4);
+}
+
+/* DODGE SURVIVAL GAME */
+function initDodge(){
+ title.textContent="☄️ Dodge Rush";
+ instructions.textContent="Use the left and right arrow keys or A and D. On a touchscreen, move your finger across the game.";
+ state={player:{x:375,y:400},blocks:[],score:0,tick:0};
+ statusText.textContent="Survive as long as possible!";
+}
+function drawDodge(){
+ let s=state,p=s.player;
+ s.tick++;s.score++;
+ if(keys.arrowleft||keys.a)p.x-=7;
+ if(keys.arrowright||keys.d)p.x+=7;
+ p.x=Math.max(18,Math.min(732,p.x));
+ if(s.tick%13===0){
+  s.blocks.push({x:Math.random()*710,y:-20,size:18+Math.random()*22,speed:3+Math.random()*3});
+ }
+ s.blocks.forEach(b=>b.y+=b.speed);
+ for(let b of s.blocks){
+  if(Math.abs(p.x-b.x)<b.size/2+13&&Math.abs(p.y-b.y)<b.size/2+13){
+   endGame("You survived "+Math.floor(s.score/22)+" seconds!");return;
+  }
+ }
+ s.blocks=s.blocks.filter(b=>b.y<480);
+ ctx.fillStyle="#101b29";ctx.fillRect(0,0,750,450);
+ ctx.fillStyle="#ffca59";
+ ctx.beginPath();ctx.moveTo(p.x,p.y-16);ctx.lineTo(p.x-14,p.y+14);ctx.lineTo(p.x+14,p.y+14);ctx.closePath();ctx.fill();
+ ctx.fillStyle="#e45b68";
+ s.blocks.forEach(b=>ctx.fillRect(b.x-b.size/2,b.y-b.size/2,b.size,b.size));
+ statusText.textContent="Survival time: "+Math.floor(s.score/22)+" seconds";
 }
 </script>
-
 </body>
 </html>
