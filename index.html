@@ -7,318 +7,202 @@
 <title>Biology Spot</title>
 
 <style>
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body {
-  font-family:Arial,sans-serif;
-  background:#faf8ef;
-  color:#26382c;
+* {
+  box-sizing: border-box;
 }
-button,input { font:inherit; }
-button { cursor:pointer; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f7ed;
+  color: #20352a;
+}
 
 header {
-  background:white;
-  padding:18px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  border-bottom:1px solid #e5e8df;
+  background: #173f2b;
+  color: white;
+  padding: 25px;
+  text-align: center;
 }
-.logo { font-size:25px; font-weight:900; color:#315b43; }
-.logo span { color:#c4a65e; }
-nav { display:flex; gap:22px; flex-wrap:wrap; }
+
+header h1 {
+  font-size: 38px;
+  margin: 5px;
+  letter-spacing: 2px;
+}
+
+nav {
+  background: #245b3b;
+  padding: 14px;
+  text-align: center;
+}
+
 nav a {
-  text-decoration:none;
-  color:#315b43;
-  font-weight:bold;
-  font-size:14px;
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+  font-weight: bold;
 }
-nav a:hover { color:#a68b4c; }
 
 .hero {
-  background:linear-gradient(120deg,#294d38,#638565);
-  color:white;
-  padding:90px 8%;
-  display:grid;
-  grid-template-columns:1.3fr 1fr;
-  gap:35px;
-  align-items:center;
+  text-align: center;
+  padding: 45px 15px;
+  background: linear-gradient(135deg, #d9edcf, #f4f8dc);
 }
-.hero small { color:#e7d39b; letter-spacing:3px; font-weight:bold; }
-.hero h1 { font-size:clamp(40px,6vw,68px); line-height:1.1; margin:17px 0; }
-.hero p { color:#e5eee4; max-width:550px; line-height:1.7; }
-.hero-art {
-  min-height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:120px;
-  background:#ffffff18;
-  border:1px solid #ffffff44;
-  border-radius:25px;
-}
-.main-button {
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 24px;
-  border-radius:8px;
-  background:#e4d09a;
-  color:#263c2c;
-  text-decoration:none;
-  font-weight:bold;
-}
-.section { padding:70px 8%; }
-.heading { text-align:center; margin-bottom:35px; }
-.heading small { color:#78936e; letter-spacing:3px; font-weight:bold; }
-.heading h2 { font-size:35px; color:#315b43; margin:10px 0; }
-.heading p { color:#738071; }
 
-.topic-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+.hero h2 {
+  font-size: 34px;
 }
+
+.hero p {
+  font-size: 17px;
+}
+
+section {
+  padding: 30px 6%;
+}
+
+.section-title {
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
 .topic {
-  background:white;
-  border:1px solid #e6e9df;
-  border-radius:15px;
-  padding:25px;
+  background: white;
+  padding: 23px;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px #00000012;
 }
-.topic .emoji { font-size:40px; }
-.topic h3 { color:#315b43; margin:12px 0; }
-.topic p { color:#748074; font-size:14px; line-height:1.6; }
 
-.facts { background:#e9f0e5; }
-.fact-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.topic h3 {
+  margin-top: 0;
 }
-.fact {
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  border-left:4px solid #78936e;
-  line-height:1.6;
-}
-.fact strong { display:block; color:#315b43; margin-bottom:8px; }
-
-/* ARCADE */
 
 .arcade {
-  background:#11151d;
-  color:white;
-  min-height:700px;
-  padding:65px 7%;
+  background: #111c19;
+  color: white;
+  padding: 35px 6%;
 }
-.arcade .heading h2 { color:white; }
-.arcade .heading p { color:#a9b1c0; }
-.arcade .heading small { color:#a8c68e; }
 
-.arcade-banner {
-  background:linear-gradient(110deg,#243b31,#26364c);
-  border:1px solid #445849;
-  border-radius:18px;
-  padding:30px;
-  margin-bottom:35px;
+.arcade h2 {
+  font-size: 32px;
 }
-.arcade-banner h2 { font-size:30px; margin-bottom:8px; }
-.arcade-banner p { color:#c2cbd2; }
 
 .search {
-  width:100%;
-  max-width:520px;
-  margin:0 auto 28px;
+  width: 100%;
+  max-width: 550px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 10px 0 20px;
 }
-.search input {
-  width:100%;
-  padding:15px 18px;
-  border:1px solid #414957;
-  border-radius:10px;
-  background:#202631;
-  color:white;
-  outline:none;
-}
-.search input:focus { border-color:#a8c68e; }
 
 .categories {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
 }
+
 .categories button {
-  background:#252d3a;
-  color:#d9dfeb;
-  border:1px solid #414957;
-  border-radius:20px;
-  padding:9px 17px;
+  background: #294b3a;
+  color: white;
+  border: 1px solid #527c60;
+  padding: 10px 17px;
+  border-radius: 20px;
+  cursor: pointer;
 }
+
 .categories button.active,
 .categories button:hover {
-  background:#9dbb83;
-  color:#18251c;
+  background: #7cbf68;
+  color: #102316;
 }
 
 .game-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 17px;
 }
+
 .game-card {
-  background:#202631;
-  border:1px solid #343e4c;
-  border-radius:15px;
-  overflow:hidden;
-  transition:.2s;
-}
-.game-card:hover { transform:translateY(-5px); border-color:#8eae78; }
-.game-cover {
-  min-height:145px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:65px;
-  background:linear-gradient(135deg,#344b40,#465b75);
-}
-.game-card:nth-child(2) .game-cover { background:linear-gradient(135deg,#594b83,#303d63); }
-.game-card:nth-child(3) .game-cover { background:linear-gradient(135deg,#8c513e,#533c50); }
-.game-card:nth-child(4) .game-cover { background:linear-gradient(135deg,#315d66,#303e56); }
-.game-card:nth-child(5) .game-cover { background:linear-gradient(135deg,#785e37,#49405c); }
-
-.game-info { padding:18px; }
-.game-info h3 { margin-bottom:7px; }
-.game-info p { color:#aab4c1; font-size:13px; min-height:34px; }
-.game-actions { display:flex; gap:8px; margin-top:16px; }
-.play {
-  flex:1;
-  background:#a8c68e;
-  color:#15251a;
-  border:0;
-  padding:11px;
-  border-radius:7px;
-  font-weight:bold;
-}
-.favorite {
-  background:#343e4c;
-  color:white;
-  border:0;
-  border-radius:7px;
-  padding:10px 13px;
-  font-size:18px;
-}
-.favorite.saved { color:#ff9aab; }
-
-.game-window {
-  display:none;
-  background:#202631;
-  border:1px solid #637b61;
-  border-radius:16px;
-  margin-top:35px;
-  padding:25px;
-  text-align:center;
-}
-.game-window h2 { margin-bottom:15px; }
-.game-window p { color:#c5ced8; margin:12px 0; }
-.game-window button {
-  background:#a8c68e;
-  color:#15251a;
-  border:0;
-  padding:10px 15px;
-  border-radius:7px;
-  margin:5px;
-  font-weight:bold;
-}
-.game-window .secondary {
-  background:#3c4655;
-  color:white;
-}
-.close-game { margin-top:20px!important; }
-
-#gameCanvas {
-  display:block;
-  background:#111923;
-  border:2px solid #536b59;
-  border-radius:10px;
-  margin:15px auto;
-  max-width:100%;
+  background: #20372b;
+  border: 1px solid #3d5c48;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
 }
 
-.board2048 {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
-  background:#394454;
-  padding:8px;
-  border-radius:10px;
-  max-width:350px;
-  margin:15px auto;
+.game-card .emoji {
+  font-size: 45px;
 }
-.tile {
-  aspect-ratio:1;
-  background:#d8d0be;
-  color:#29352b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:5px;
-  font-size:23px;
-  font-weight:bold;
-}
-.tile.empty { background:#283241; }
-.tile.v2 { background:#eee4d5; }
-.tile.v4 { background:#e7d6b8; }
-.tile.v8 { background:#e9a66d; }
-.tile.v16 { background:#e68156; color:white; }
-.tile.v32,.tile.v64 { background:#c85e49; color:white; }
-.tile.big { background:#8a78b5; color:white; font-size:18px; }
 
-.memory-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  max-width:360px;
-  margin:20px auto;
+.game-card h3 {
+  margin: 10px 0;
 }
-.memory-grid button {
-  font-size:27px;
-  min-height:65px;
-  background:#354456;
-  color:white;
-}
-.memory-grid button.revealed { background:#e1e8d6; }
 
-.about { text-align:center; max-width:750px; margin:auto; }
-.about p { color:#738071; line-height:1.8; }
+.game-card button,
+.play-button {
+  background: #8bd477;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.game-card button:hover,
+.play-button:hover {
+  background: #b2ed9d;
+}
+
+#gameArea {
+  display: none;
+  background: #f5f8ef;
+  color: #20352a;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#gameArea button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#gameArea h2 {
+  margin-top: 0;
+}
+
+#gameArea .big {
+  font-size: 55px;
+}
 
 footer {
-  background:#203d2d;
-  color:white;
-  text-align:center;
-  padding:35px 8%;
+  background: #173f2b;
+  color: white;
+  padding: 25px;
+  text-align: center;
 }
-footer p { color:#d5e1d3; margin-top:8px; font-size:13px; }
-footer a { color:#e4d09a; }
 
-@media(max-width:850px) {
-  .topic-grid { grid-template-columns:repeat(2,1fr); }
-  .game-grid { grid-template-columns:repeat(2,1fr); }
-  .hero { grid-template-columns:1fr; }
-  .fact-grid { grid-template-columns:1fr; }
-}
-@media(max-width:550px) {
-  header { justify-content:center; }
-  nav { justify-content:center; gap:13px; }
-  .topic-grid,.game-grid { grid-template-columns:1fr; }
-  .section,.arcade { padding:50px 6%; }
-  .hero { padding:60px 7%; }
+@media(max-width: 600px) {
+  header h1 {
+    font-size: 29px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 7px;
+  }
 }
 </style>
 </head>
@@ -326,459 +210,449 @@ footer a { color:#e4d09a; }
 <body>
 
 <header>
-  <div class="logo">BIOLOGY <span>SPOT.</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#biology">Biology</a>
-    <a href="#facts">Fun Facts</a>
-    <a href="#games">Games</a>
-    <a href="#about">About</a>
-  </nav>
+  <h1>🌿 BIOLOGY SPOT</h1>
+  <p>Explore. Discover. Play.</p>
 </header>
 
-<section class="hero" id="home">
-  <div>
-    <small>EXPLORE • LEARN • DISCOVER</small>
-    <h1>Discover the Science of Life.</h1>
-    <p>
-      Welcome to Biology Spot. Explore the world of living things,
-      discover how the human body works, and learn something new
-      every day.
-    </p>
-    <a href="#biology" class="main-button">Explore Biology →</a>
-  </div>
-  <div class="hero-art">🌿🧬🔬</div>
-</section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#topics">Biology</a>
+  <a href="#arcade">Games</a>
+</nav>
 
-<section class="section" id="biology">
-  <div class="heading">
-    <small>EXPLORE THE SUBJECT</small>
-    <h2>Discover Biology</h2>
-    <p>Four fascinating areas of the science of life.</p>
-  </div>
+<div class="hero" id="home">
+  <h2>Welcome to Biology Spot!</h2>
+  <p>Explore the world of science, discover interesting facts, and enjoy the arcade.</p>
+</div>
 
-  <div class="topic-grid">
+<section id="topics">
+  <h2 class="section-title">Explore Biology</h2>
+
+  <div class="topics">
     <div class="topic">
-      <div class="emoji">🔬</div>
-      <h3>Cell Biology</h3>
-      <p>Explore cells and the tiny structures that make life possible.</p>
+      <h3>🧬 Genetics</h3>
+      <p>Discover DNA, genes, and how traits are passed down.</p>
     </div>
+
     <div class="topic">
-      <div class="emoji">🧬</div>
-      <h3>Genetics</h3>
-      <p>Discover DNA, genes, and how traits are inherited.</p>
+      <h3>🫀 Human Biology</h3>
+      <p>Explore the human body and its amazing systems.</p>
     </div>
+
     <div class="topic">
-      <div class="emoji">🫀</div>
-      <h3>Human Biology</h3>
-      <p>Learn about the organs and systems inside the human body.</p>
+      <h3>🌎 Ecosystems</h3>
+      <p>Learn about animals, plants, habitats, and nature.</p>
     </div>
+
     <div class="topic">
-      <div class="emoji">🌎</div>
-      <h3>Ecosystems</h3>
-      <p>Explore animals, plants, and the environments around them.</p>
+      <h3>🔬 Cells</h3>
+      <p>Take a closer look at the tiny building blocks of life.</p>
     </div>
   </div>
 </section>
 
-<section class="section facts" id="facts">
-  <div class="heading">
-    <small>SCIENCE IS AMAZING</small>
-    <h2>Did You Know?</h2>
-    <p>A few interesting facts about the living world.</p>
-  </div>
-  <div class="fact-grid">
-    <div class="fact">
-      <strong>🧠 The brain</strong>
-      Your brain contains billions of nerve cells called neurons.
-    </div>
-    <div class="fact">
-      <strong>🌱 Plants</strong>
-      Plants use sunlight to make food through photosynthesis.
-    </div>
-    <div class="fact">
-      <strong>🧬 DNA</strong>
-      DNA carries genetic instructions used by living organisms.
-    </div>
-  </div>
-</section>
+<div class="arcade" id="arcade">
+  <h2>🎮 The Biology Spot Arcade</h2>
+  <p>Pick a game and have fun!</p>
 
-<section class="arcade" id="games">
-  <div class="heading">
-    <small>THE FUN STARTS HERE</small>
-    <h2>THE ARCADE</h2>
-    <p>Pick a game. Take a break. Beat your high score.</p>
-  </div>
-
-  <div class="arcade-banner">
-    <h2>🎮 Welcome to the Game Zone</h2>
-    <p>Explore the games, find your favorites, and challenge yourself!</p>
-  </div>
-
-  <div class="search">
-    <input id="gameSearch" placeholder="🔎 Search games..." oninput="filterGames()">
-  </div>
+  <input
+    class="search"
+    id="search"
+    placeholder="🔎 Search games..."
+    oninput="filterGames()"
+  >
 
   <div class="categories">
-    <button class="active" onclick="setCategory('all',this)">All Games</button>
-    <button onclick="setCategory('arcade',this)">Arcade</button>
-    <button onclick="setCategory('puzzle',this)">Puzzle</button>
-    <button onclick="setCategory('action',this)">Action</button>
-    <button onclick="setCategory('favorites',this)">♥ Favorites</button>
+    <button class="active" onclick="setCategory('All', this)">All Games</button>
+    <button onclick="setCategory('Puzzle', this)">Puzzle</button>
+    <button onclick="setCategory('Action', this)">Action</button>
+    <button onclick="setCategory('Memory', this)">Memory</button>
   </div>
 
   <div class="game-grid" id="gameGrid">
 
-    <div class="game-card" data-name="2048 number puzzle" data-category="puzzle" data-id="2048">
-      <div class="game-cover">🔢</div>
-      <div class="game-info">
-        <h3>2048</h3>
-        <p>Combine numbers and try to reach 2048!</p>
-        <div class="game-actions">
-          <button class="play" onclick="start2048()">PLAY NOW</button>
-          <button class="favorite" onclick="toggleFavorite('2048',this)">♡</button>
-        </div>
-      </div>
+    <div class="game-card" data-name="2048" data-category="Puzzle">
+      <div class="emoji">🔢</div>
+      <h3>2048</h3>
+      <p>Combine numbers to reach 2048.</p>
+      <button onclick="startGame('2048')">Play Game</button>
     </div>
 
-    <div class="game-card" data-name="snake arcade" data-category="arcade" data-id="snake">
-      <div class="game-cover">🐍</div>
-      <div class="game-info">
-        <h3>Snake</h3>
-        <p>Collect food, grow longer, and avoid yourself!</p>
-        <div class="game-actions">
-          <button class="play" onclick="startSnake()">PLAY NOW</button>
-          <button class="favorite" onclick="toggleFavorite('snake',this)">♡</button>
-        </div>
-      </div>
+    <div class="game-card" data-name="Click Rush" data-category="Action">
+      <div class="emoji">⚡</div>
+      <h3>Click Rush</h3>
+      <p>Click as many times as possible!</p>
+      <button onclick="startGame('Click Rush')">Play Game</button>
     </div>
 
-    <div class="game-card" data-name="click rush reaction action" data-category="action" data-id="click">
-      <div class="game-cover">⚡</div>
-      <div class="game-info">
-        <h3>Click Rush</h3>
-        <p>Click as fast as possible before time runs out!</p>
-        <div class="game-actions">
-          <button class="play" onclick="startClick()">PLAY NOW</button>
-          <button class="favorite" onclick="toggleFavorite('click',this)">♡</button>
-        </div>
-      </div>
+    <div class="game-card" data-name="Memory Match" data-category="Memory">
+      <div class="emoji">🧠</div>
+      <h3>Memory Match</h3>
+      <p>Find matching pairs of cards.</p>
+      <button onclick="startGame('Memory Match')">Play Game</button>
     </div>
 
-    <div class="game-card" data-name="memory match cards" data-category="puzzle" data-id="memory">
-      <div class="game-cover">🃏</div>
-      <div class="game-info">
-        <h3>Memory Match</h3>
-        <p>Flip cards and find every matching pair.</p>
-        <div class="game-actions">
-          <button class="play" onclick="startMemory()">PLAY NOW</button>
-          <button class="favorite" onclick="toggleFavorite('memory',this)">♡</button>
-        </div>
-      </div>
+    <div class="game-card" data-name="Number Guess" data-category="Puzzle">
+      <div class="emoji">🎯</div>
+      <h3>Number Guess</h3>
+      <p>Try to guess the secret number.</p>
+      <button onclick="startGame('Number Guess')">Play Game</button>
+    </div>
+
+    <div class="game-card" data-name="Reaction Test" data-category="Action">
+      <div class="emoji">🚀</div>
+      <h3>Reaction Test</h3>
+      <p>Test how quickly you can react.</p>
+      <button onclick="startGame('Reaction Test')">Play Game</button>
     </div>
 
   </div>
 
-  <div class="game-window" id="gameWindow">
-    <h2 id="gameTitle">Game</h2>
+  <div id="gameArea">
+    <button onclick="closeGame()">✖ Close Game</button>
     <div id="gameContent"></div>
-    <button class="secondary close-game" onclick="closeGame()">CLOSE GAME</button>
   </div>
-</section>
-
-<section class="section" id="about">
-  <div class="heading">
-    <small>ABOUT US</small>
-    <h2>About Biology Spot</h2>
-  </div>
-  <div class="about">
-    <p>
-      Biology Spot brings together science, discovery, and entertainment.
-      Explore the world of biology on the homepage, then visit the arcade
-      for some fun games.
-    </p>
-  </div>
-</section>
+</div>
 
 <footer>
-  <div class="logo" style="color:white">BIOLOGY <span>SPOT.</span></div>
-  <p>Discover the Science of Life.</p>
-  <p>Created by Felicity</p>
-  <p>Instagram:
-    <a href="https://www.instagram.com/fel_felicityy/" target="_blank" rel="noopener">@fel_felicityy</a>
-  </p>
-  <p>© 2026 Biology Spot</p>
+  <h3>🌿 BIOLOGY SPOT</h3>
+  <p>A place to explore, discover, and play.</p>
 </footer>
 
 <script>
-/* FAVORITES AND SEARCH */
+let currentCategory = "All";
+let clickCount = 0;
+let clickTimer;
+let secretNumber = 0;
+let reactionReady = false;
+let reactionStart = 0;
+let reactionTimer;
 
-let favorites = [];
-let currentCategory = "all";
+function setCategory(category, button) {
+  currentCategory = category;
 
-function toggleFavorite(id,button) {
-  if(favorites.includes(id)) {
-    favorites = favorites.filter(x=>x!==id);
-    button.textContent="♡";
-    button.classList.remove("saved");
-  } else {
-    favorites.push(id);
-    button.textContent="♥";
-    button.classList.add("saved");
-  }
-  filterGames();
-}
+  document.querySelectorAll(".categories button")
+    .forEach(b => b.classList.remove("active"));
 
-function setCategory(category,button) {
-  currentCategory=category;
-  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
   button.classList.add("active");
   filterGames();
 }
 
 function filterGames() {
-  let search=document.getElementById("gameSearch").value.toLowerCase();
-  document.querySelectorAll(".game-card").forEach(card=>{
-    let matchesSearch=card.dataset.name.includes(search);
-    let matchesCategory=
-      currentCategory==="all" ||
-      card.dataset.category===currentCategory ||
-      (currentCategory==="favorites" && favorites.includes(card.dataset.id));
-    card.style.display=matchesSearch && matchesCategory?"block":"none";
+  const search = document.getElementById("search").value.toLowerCase();
+
+  document.querySelectorAll(".game-card").forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchesSearch = name.includes(search);
+    const matchesCategory =
+      currentCategory === "All" || category === currentCategory;
+
+    card.style.display =
+      matchesSearch && matchesCategory ? "block" : "none";
   });
 }
 
-function openGame(title) {
-  document.getElementById("gameWindow").style.display="block";
-  document.getElementById("gameTitle").textContent=title;
-  document.getElementById("gameContent").innerHTML="";
-  document.getElementById("gameWindow").scrollIntoView({behavior:"smooth",block:"center"});
+function startGame(name) {
+  const area = document.getElementById("gameArea");
+  const content = document.getElementById("gameContent");
+
+  area.style.display = "block";
+  content.innerHTML = "";
+
+  if (name === "Click Rush") {
+    clickCount = 0;
+
+    content.innerHTML = `
+      <h2>⚡ Click Rush</h2>
+      <p>Click the button as many times as you can in 10 seconds!</p>
+      <h1 id="clickScore">0</h1>
+      <button onclick="clickGame()" id="clickButton">CLICK ME!</button>
+      <p id="clickMessage">Press start to begin.</p>
+      <button onclick="startGame('Click Rush')">Restart</button>
+    `;
+    clearInterval(clickTimer);
+    document.getElementById("clickButton").disabled = true;
+    document.getElementById("clickMessage").innerText = "Press start to begin.";
+    document.getElementById("clickButton").insertAdjacentHTML(
+      "afterend",
+      '<button onclick="beginClickGame()">Start</button>'
+    );
+  }
+
+  else if (name === "Number Guess") {
+    secretNumber = Math.floor(Math.random() * 50) + 1;
+
+    content.innerHTML = `
+      <h2>🎯 Number Guess</h2>
+      <p>Guess a number between 1 and 50.</p>
+      <input id="guess" type="number" min="1" max="50">
+      <button onclick="checkGuess()">Guess</button>
+      <p id="guessMessage"></p>
+    `;
+  }
+
+  else if (name === "Memory Match") {
+    let cards = ["🐸","🐸","🌻","🌻","🦋","🦋","🐢","🐢"];
+    cards.sort(() => Math.random() - 0.5);
+
+    content.innerHTML = `
+      <h2>🧠 Memory Match</h2>
+      <p>Find all four matching pairs!</p>
+      <div id="memoryBoard" style="display:grid;grid-template-columns:repeat(4,65px);gap:8px;justify-content:center;"></div>
+      <p id="memoryMessage">Find the matching cards.</p>
+    `;
+
+    let first = null;
+    let lock = false;
+    let matches = 0;
+
+    const board = document.getElementById("memoryBoard");
+
+    cards.forEach((symbol, index) => {
+      const button = document.createElement("button");
+      button.style.fontSize = "26px";
+      button.style.width = "65px";
+      button.style.height = "65px";
+      button.textContent = "?";
+
+      button.onclick = () => {
+        if (lock || button.textContent !== "?") return;
+
+        button.textContent = symbol;
+
+        if (!first) {
+          first = button;
+        } else {
+          if (first.textContent === button.textContent) {
+            matches++;
+            first.disabled = true;
+            button.disabled = true;
+            first = null;
+
+            if (matches === 4) {
+              document.getElementById("memoryMessage").textContent =
+                "🎉 You found every pair!";
+            }
+          } else {
+            lock = true;
+            const previous = first;
+            first = null;
+
+            setTimeout(() => {
+              previous.textContent = "?";
+              button.textContent = "?";
+              lock = false;
+            }, 800);
+          }
+        }
+      };
+
+      board.appendChild(button);
+    });
+  }
+
+  else if (name === "Reaction Test") {
+    content.innerHTML = `
+      <h2>🚀 Reaction Test</h2>
+      <p>Wait until the box turns green, then click it!</p>
+      <button id="reactionButton" style="width:220px;height:120px;background:#d65b5b;color:white;font-size:20px;" onclick="reactionClick()">START</button>
+      <p id="reactionMessage"></p>
+    `;
+
+    reactionReady = false;
+    clearTimeout(reactionTimer);
+  }
+
+  else if (name === "2048") {
+    start2048();
+  }
 }
 
-let activeTimer=null;
-function closeGame() {
-  clearInterval(activeTimer);
-  activeTimer=null;
-  document.getElementById("gameWindow").style.display="none";
-  document.getElementById("gameContent").innerHTML="";
+function beginClickGame() {
+  clickCount = 0;
+  const score = document.getElementById("clickScore");
+  const button = document.getElementById("clickButton");
+  const message = document.getElementById("clickMessage");
+
+  if (!score || !button || !message) return;
+
+  score.textContent = "0";
+  button.disabled = false;
+  message.textContent = "GO!";
+
+  clearInterval(clickTimer);
+
+  let seconds = 10;
+  clickTimer = setInterval(() => {
+    seconds--;
+    message.textContent = seconds + " seconds left!";
+
+    if (seconds <= 0) {
+      clearInterval(clickTimer);
+      button.disabled = true;
+      message.textContent = "Time is up! Your score: " + clickCount;
+    }
+  }, 1000);
 }
 
-/* 2048 */
+function clickGame() {
+  clickCount++;
+  document.getElementById("clickScore").textContent = clickCount;
+}
 
-let board=[],score2048=0;
+function checkGuess() {
+  const guess = Number(document.getElementById("guess").value);
+  const message = document.getElementById("guessMessage");
+
+  if (!guess || guess < 1 || guess > 50) {
+    message.textContent = "Enter a number from 1 to 50.";
+  } else if (guess === secretNumber) {
+    message.textContent = "🎉 Correct! You got it!";
+  } else if (guess < secretNumber) {
+    message.textContent = "Too low! Try again.";
+  } else {
+    message.textContent = "Too high! Try again.";
+  }
+}
+
+function reactionClick() {
+  const button = document.getElementById("reactionButton");
+  const message = document.getElementById("reactionMessage");
+
+  if (!reactionReady) {
+    if (button.textContent === "START") {
+      button.textContent = "WAIT...";
+      button.style.background = "#d65b5b";
+
+      reactionTimer = setTimeout(() => {
+        reactionReady = true;
+        reactionStart = Date.now();
+        button.textContent = "CLICK NOW!";
+        button.style.background = "#55ad4f";
+      }, 1500 + Math.random() * 3000);
+    } else {
+      clearTimeout(reactionTimer);
+      button.textContent = "Too early! Try again.";
+      message.textContent = "Wait for green next time.";
+      reactionReady = false;
+    }
+  } else {
+    const time = Date.now() - reactionStart;
+    button.textContent = "START";
+    button.style.background = "#d65b5b";
+    message.textContent = "Your reaction time: " + time + " ms!";
+    reactionReady = false;
+  }
+}
+
+let board2048 = [];
 
 function start2048() {
-  openGame("🔢 2048");
-  board=Array(16).fill(0);
-  score2048=0;
-  addTile(); addTile();
-  render2048();
+  board2048 = Array(16).fill(0);
+  add2048();
+  add2048();
+
+  document.getElementById("gameContent").innerHTML = `
+    <h2>🔢 2048</h2>
+    <p>Use the arrow keys to combine matching numbers.</p>
+    <h3 id="score2048">Score: 0</h3>
+    <div id="board2048" style="display:grid;grid-template-columns:repeat(4,65px);gap:6px;justify-content:center;"></div>
+    <p>Use your keyboard arrow keys to play.</p>
+    <button onclick="start2048()">Restart</button>
+  `;
+
+  draw2048();
 }
 
-function addTile() {
-  let empty=board.map((v,i)=>v===0?i:-1).filter(i=>i!==-1);
-  if(empty.length) board[empty[Math.floor(Math.random()*empty.length)]]=Math.random()<.9?2:4;
+function add2048() {
+  let empty = board2048.map((v,i) => v === 0 ? i : -1).filter(i => i >= 0);
+  if (empty.length) {
+    let position = empty[Math.floor(Math.random() * empty.length)];
+    board2048[position] = Math.random() < 0.9 ? 2 : 4;
+  }
 }
 
-function render2048() {
-  let html=`<p>Score: ${score2048} | Use your arrow keys or buttons.</p><div class="board2048">`;
-  board.forEach(v=>{
-    let cls=v===0?"empty":v<=64?"v"+v:"big";
-    html+=`<div class="tile ${cls}">${v||""}</div>`;
+function draw2048() {
+  const board = document.getElementById("board2048");
+  if (!board) return;
+
+  board.innerHTML = "";
+
+  board2048.forEach(value => {
+    const cell = document.createElement("div");
+    cell.textContent = value || "";
+    cell.style.width = "65px";
+    cell.style.height = "65px";
+    cell.style.display = "grid";
+    cell.style.placeItems = "center";
+    cell.style.background = value ? "#c9dfb9" : "#dce7d5";
+    cell.style.borderRadius = "8px";
+    cell.style.fontSize = "22px";
+    cell.style.fontWeight = "bold";
+    board.appendChild(cell);
   });
-  html+=`</div><p id="status2048"></p>
-  <button onclick="move2048('up')">↑</button><br>
-  <button onclick="move2048('left')">←</button>
-  <button onclick="move2048('down')">↓</button>
-  <button onclick="move2048('right')">→</button>
-  <br><button class="secondary" onclick="start2048()">RESTART</button>`;
-  document.getElementById("gameContent").innerHTML=html;
+
+  document.getElementById("score2048").textContent =
+    "Score: " + board2048.reduce((a,b) => a+b, 0);
 }
 
 function move2048(direction) {
-  let old=board.join(",");
-  for(let line=0;line<4;line++) {
-    let indexes=[];
-    for(let n=0;n<4;n++) {
-      if(direction==="left") indexes.push(line*4+n);
-      if(direction==="right") indexes.push(line*4+3-n);
-      if(direction==="up") indexes.push(n*4+line);
-      if(direction==="down") indexes.push((3-n)*4+line);
+  let old = board2048.join(",");
+
+  for (let line = 0; line < 4; line++) {
+    let indexes = [];
+
+    for (let i = 0; i < 4; i++) {
+      if (direction === "left") indexes.push(line*4+i);
+      if (direction === "right") indexes.push(line*4+3-i);
+      if (direction === "up") indexes.push(i*4+line);
+      if (direction === "down") indexes.push((3-i)*4+line);
     }
-    let values=indexes.map(i=>board[i]).filter(v=>v!==0);
-    for(let i=0;i<values.length-1;i++) {
-      if(values[i]===values[i+1]) {
-        values[i]*=2;
-        score2048+=values[i];
-        values.splice(i+1,1);
+
+    let values = indexes.map(i => board2048[i]).filter(v => v);
+    let merged = [];
+
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] === values[i+1]) {
+        merged.push(values[i]*2);
+        i++;
+      } else {
+        merged.push(values[i]);
       }
     }
-    while(values.length<4) values.push(0);
-    indexes.forEach((index,i)=>board[index]=values[i]);
+
+    while (merged.length < 4) merged.push(0);
+
+    indexes.forEach((index, i) => board2048[index] = merged[i]);
   }
-  if(old!==board.join(",")) addTile();
-  render2048();
-  if(board.some(v=>v===2048)) document.getElementById("status2048").textContent="You reached 2048! Amazing!";
+
+  if (old !== board2048.join(",")) add2048();
+  draw2048();
 }
 
-document.addEventListener("keydown",function(e){
-  if(document.getElementById("gameWindow").style.display!=="block") return;
-  let map={ArrowLeft:"left",ArrowRight:"right",ArrowUp:"up",ArrowDown:"down"};
-  if(map[e.key] && document.getElementById("gameTitle").textContent.includes("2048")) {
-    e.preventDefault();
-    move2048(map[e.key]);
-  }
-});
+document.addEventListener("keydown", event => {
+  if (document.getElementById("gameArea").style.display !== "block") return;
 
-/* CLICK RUSH */
-
-let clicks=0,clickTime=10;
-
-function startClick() {
-  openGame("⚡ Click Rush");
-  clicks=0;
-  clickTime=10;
-  document.getElementById("gameContent").innerHTML=`
-    <h1 id="clickCount">0</h1>
-    <p id="clickTimer">Time: 10 seconds</p>
-    <button id="clickTarget" style="font-size:25px;padding:25px 40px">CLICK ME!</button>
-    <p>Get as many clicks as you can!</p>`;
-  document.getElementById("clickTarget").onclick=()=>{
-    if(clickTime>0) {
-      clicks++;
-      document.getElementById("clickCount").textContent=clicks;
-    }
+  const directions = {
+    ArrowLeft: "left",
+    ArrowRight: "right",
+    ArrowUp: "up",
+    ArrowDown: "down"
   };
-  activeTimer=setInterval(()=>{
-    clickTime--;
-    document.getElementById("clickTimer").textContent="Time: "+clickTime+" seconds";
-    if(clickTime<=0) {
-      clearInterval(activeTimer);
-      document.getElementById("clickTarget").disabled=true;
-      document.getElementById("gameContent").innerHTML+=`<h2>TIME'S UP!</h2><p>Your score: ${clicks} clicks!</p><button onclick="startClick()">PLAY AGAIN</button>`;
-    }
-  },1000);
-}
 
-/* MEMORY MATCH */
-
-let memorySymbols=["🍉","🍋","🍇","🍓","🍉","🍋","🍇","🍓"];
-let memoryFirst=null,memoryLock=false,memoryMatches=0;
-
-function startMemory() {
-  openGame("🃏 Memory Match");
-  memoryMatches=0;
-  memoryFirst=null;
-  memoryLock=false;
-  let cards=[...memorySymbols].sort(()=>Math.random()-.5);
-  document.getElementById("gameContent").innerHTML=`
-    <p>Find all four pairs!</p>
-    <div class="memory-grid" id="memoryGrid"></div>
-    <p id="memoryScore">Matches: 0 / 4</p>`;
-  cards.forEach(symbol=>{
-    let b=document.createElement("button");
-    b.textContent="?";
-    b.dataset.symbol=symbol;
-    b.onclick=()=>flipMemory(b);
-    document.getElementById("memoryGrid").appendChild(b);
-  });
-}
-
-function flipMemory(card) {
-  if(memoryLock || card.dataset.found==="yes" || card===memoryFirst) return;
-  card.textContent=card.dataset.symbol;
-  card.classList.add("revealed");
-  if(!memoryFirst) { memoryFirst=card; return; }
-  let second=card;
-  memoryLock=true;
-  if(memoryFirst.dataset.symbol===second.dataset.symbol) {
-    memoryFirst.dataset.found="yes";
-    second.dataset.found="yes";
-    memoryFirst=null;
-    memoryMatches++;
-    memoryLock=false;
-    document.getElementById("memoryScore").textContent="Matches: "+memoryMatches+" / 4";
-    if(memoryMatches===4) document.getElementById("memoryScore").textContent="You won! 🎉";
-  } else {
-    setTimeout(()=>{
-      memoryFirst.textContent="?";
-      second.textContent="?";
-      memoryFirst.classList.remove("revealed");
-      second.classList.remove("revealed");
-      memoryFirst=null;
-      memoryLock=false;
-    },800);
+  if (directions[event.key]) {
+    event.preventDefault();
+    move2048(directions[event.key]);
   }
-}
-
-/* SNAKE */
-
-let snake,food,direction,snakeScore,snakeLoop;
-
-function startSnake() {
-  openGame("🐍 Snake");
-  snake=[{x:8,y:8},{x:7,y:8},{x:6,y:8}];
-  direction={x:1,y:0};
-  snakeScore=0;
-  newFood();
-  document.getElementById("gameContent").innerHTML=`
-    <p>Use your arrow keys to move. Collect the food!</p>
-    <canvas id="gameCanvas" width="320" height="320"></canvas>
-    <p id="snakeScore">Score: 0</p>
-    <button onclick="changeDirection(0,-1)">↑</button><br>
-    <button onclick="changeDirection(-1,0)">←</button>
-    <button onclick="changeDirection(0,1)">↓</button>
-    <button onclick="changeDirection(1,0)">→</button>`;
-  drawSnake();
-  clearInterval(snakeLoop);
-  snakeLoop=setInterval(updateSnake,150);
-  activeTimer=snakeLoop;
-}
-
-function newFood() {
-  food={x:Math.floor(Math.random()*16),y:Math.floor(Math.random()*16)};
-}
-
-function changeDirection(x,y) {
-  if(x===-direction.x && y===-direction.y) return;
-  direction={x,y};
-}
-
-document.addEventListener("keydown",e=>{
-  if(!document.getElementById("gameTitle").textContent.includes("Snake")) return;
-  if(e.key==="ArrowUp") changeDirection(0,-1);
-  if(e.key==="ArrowDown") changeDirection(0,1);
-  if(e.key==="ArrowLeft") changeDirection(-1,0);
-  if(e.key==="ArrowRight") changeDirection(1,0);
 });
 
-function drawSnake() {
-  let canvas=document.getElementById("gameCanvas");
-  if(!canvas) return;
-  let ctx=canvas.getContext("2d");
-  ctx.fillStyle="#111923";
-  ctx.fillRect(0,0,320,320);
-  ctx.fillStyle="#a8c68e";
-  snake.forEach(part=>ctx.fillRect(part.x*20+2,part.y*20+2,16,16));
-  ctx.fillStyle="#ff8b73";
-  ctx.fillRect(food.x*20+2,food.y*20+2,16,16);
-}
-
-function updateSnake() {
-  let head={x:snake[0].x+direction.x,y:snake[0].y+direction.y};
-  if(head.x<0 || head.x>=16 || head.y<0 || head.y>=16 ||
-     snake.some(p=>p.x===head.x && p.y===head.y)) {
-    clearInterval(snakeLoop);
-    document.getElementById("gameContent").innerHTML+=`<h2>GAME OVER!</h2><p>Your score: ${snakeScore}</p><button onclick="startSnake()">PLAY AGAIN</button>`;
-    return;
-  }
-  snake.unshift(head);
-  if(head.x===food.x && head.y===food.y) {
-    snakeScore++;
-    document.getElementById("snakeScore").textContent="Score: "+snakeScore;
-    newFood();
-  } else snake.pop();
-  drawSnake();
+function closeGame() {
+  document.getElementById("gameArea").style.display = "none";
+  clearInterval(clickTimer);
+  clearTimeout(reactionTimer);
+  reactionReady = false;
 }
 </script>
 
