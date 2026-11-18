@@ -4,402 +4,863 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biology Spot</title>
+<title>Biology Spot | Discover the Science of Life</title>
+
 <style>
 :root {
-  --green: #315b40;
-  --light: #e8efdf;
-  --cream: #f8f7ef;
-  --text: #304638;
+  --green: #315b43;
+  --dark: #203d2d;
+  --light-green: #e6eee3;
+  --cream: #faf8ef;
+  --white: #ffffff;
+  --gold: #d9b96e;
+  --text: #26382c;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
   background: var(--cream);
   color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
+
 header {
-  background: var(--light);
-  padding: 20px 7%;
+  background: var(--white);
+  padding: 17px 7%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 15px;
+  border-bottom: 1px solid #e5e8df;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
+
 .logo {
-  font-size: 27px;
-  font-weight: bold;
-  letter-spacing: 2px;
   color: var(--green);
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-nav { display: flex; gap: 20px; }
+
+.logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 23px;
+  flex-wrap: wrap;
+}
+
 nav a {
   text-decoration: none;
-  color: var(--green);
+  color: var(--text);
+  font-size: 14px;
   font-weight: bold;
 }
-nav a:hover { text-decoration: underline; }
-.hero {
-  text-align: center;
-  padding: 90px 20px;
-  background:
-    linear-gradient(#203e2c99,#203e2c99),
-    url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1600")
-    center/cover;
-  color: white;
+
+nav a:hover {
+  color: #75966f;
 }
-.hero h1 { font-size: clamp(36px,6vw,65px); margin: 0 0 15px; }
-.hero p { font-size: 18px; }
-.hero a {
+
+.hero {
+  background: linear-gradient(120deg, #294d38, #527c59);
+  color: white;
+  padding: 90px 8%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.hero small {
+  color: #e7d39b;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  line-height: 1.08;
+  margin: 17px 0;
+}
+
+.hero p {
+  max-width: 550px;
+  color: #e7eee5;
+  font-size: 17px;
+}
+
+.main-button {
   display: inline-block;
-  margin-top: 20px;
-  background: #e8efdf;
-  color: var(--green);
-  padding: 14px 28px;
-  border-radius: 8px;
+  margin-top: 25px;
+  padding: 13px 24px;
+  background: #e4d09a;
+  color: #263c2c;
+  border-radius: 7px;
   text-decoration: none;
   font-weight: bold;
 }
-section { padding: 55px 8%; }
-.section-title {
+
+.main-button:hover {
+  background: white;
+}
+
+.hero-art {
+  min-height: 280px;
+  border: 1px solid #a8c0a4;
+  border-radius: 25px;
+  background: radial-gradient(circle, #769b70, #345c40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 125px;
+}
+
+.section {
+  padding: 75px 8%;
+}
+
+.section-heading {
   text-align: center;
-  font-size: 30px;
+  margin-bottom: 38px;
+}
+
+.section-heading small {
+  color: #75966f;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
   color: var(--green);
+  font-size: 35px;
+  margin: 8px 0;
 }
-.intro {
-  text-align: center;
-  max-width: 650px;
-  margin: auto;
-  line-height: 1.7;
+
+.section-heading p {
+  color: #68766a;
 }
-.grid {
+
+.topic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-  gap: 20px;
-  margin-top: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 19px;
 }
-.card {
+
+.topic-card {
+  background: white;
+  border: 1px solid #e5e8df;
+  padding: 25px 20px;
+  border-radius: 15px;
+  transition: 0.2s;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #203d2d14;
+}
+
+.topic-icon {
+  font-size: 42px;
+  margin-bottom: 13px;
+}
+
+.topic-card h3 {
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.topic-card p {
+  color: #69766b;
+  font-size: 14px;
+}
+
+.facts {
+  background: var(--light-green);
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fact {
   background: white;
   border-radius: 13px;
-  overflow: hidden;
-  box-shadow: 0 3px 13px #00000010;
+  padding: 25px;
+  border-left: 4px solid #75966f;
 }
-.card .picture {
-  height: 140px;
-  display: grid;
-  place-items: center;
-  font-size: 65px;
-  background: var(--light);
-}
-.card-content { padding: 20px; }
-.card h3 { margin-top: 0; }
-.games-section { background: var(--light); }
-input {
+
+.fact strong {
+  color: var(--green);
   display: block;
-  width: min(100%,450px);
-  padding: 13px;
-  margin: 25px auto;
-  border: 1px solid #b9cbb7;
-  border-radius: 8px;
-  font-size: 16px;
+  margin-bottom: 8px;
 }
-button {
-  cursor: pointer;
+
+.games-section {
+  background: #f3f3e9;
+}
+
+.game-search {
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.game-search input {
+  width: 100%;
+  padding: 14px 17px;
+  border: 1px solid #cbd5c8;
+  border-radius: 9px;
+  font-size: 15px;
+  outline: none;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.game-card {
+  background: white;
+  padding: 27px;
+  border-radius: 15px;
+  border: 1px solid #e3e6dd;
+}
+
+.game-card .game-icon {
+  font-size: 48px;
+}
+
+.game-card h3 {
+  color: var(--green);
+  margin: 10px 0;
+}
+
+.game-card p {
+  color: #6d786e;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.play-button {
   background: var(--green);
   color: white;
-  padding: 11px 20px;
-  border: 0;
+  border: none;
   border-radius: 7px;
-  font-size: 15px;
+  padding: 11px 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
-button:hover { opacity: .85; }
-.game-panel {
+
+.play-button:hover {
+  background: #527c59;
+}
+
+.game-area {
   display: none;
   background: white;
-  padding: 25px;
-  margin-top: 25px;
-  border-radius: 12px;
+  border: 2px solid #dce5d8;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 750px;
+  margin: 35px auto 0;
   text-align: center;
 }
-.game-panel.active { display: block; }
+
+.game-area h3 {
+  color: var(--green);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.game-area button {
+  margin: 6px;
+  padding: 10px 16px;
+  border: 1px solid #cbd5c8;
+  border-radius: 7px;
+  background: #f4f7f1;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.game-area button:hover {
+  background: var(--light-green);
+}
+
+.game-area .close-button {
+  background: #f1e7d9;
+  margin-top: 20px;
+}
+
+#game-content {
+  margin-top: 15px;
+}
+
+#game-content p {
+  margin: 12px 0;
+}
+
 .memory-grid {
   display: grid;
-  grid-template-columns: repeat(4,65px);
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
   gap: 9px;
+  max-width: 400px;
   margin: 20px auto;
 }
-.memory-grid button {
-  height: 65px;
+
+.memory-card {
+  min-height: 65px;
   font-size: 25px;
-  padding: 0;
-  background: #dce9d7;
-  color: var(--green);
+  background: #e6eee3 !important;
 }
-footer {
-  background: #294936;
-  color: white;
+
+.about {
   text-align: center;
-  padding: 35px 20px;
-}
-footer a { color: #dcebd7; }
-footer p { line-height: 1.7; }
-.hidden { display: none; }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">BIOLOGY SPOT 🌿</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#biology">Biology</a>
-    <a href="#games">Games</a>
-    <a href="#info">Info</a>
-  </nav>
-</header>
-
-<main>
-<section class="hero" id="home">
-  <h1>Discover the Science of Life</h1>
-  <p>Explore, learn, and discover the world of biology.</p>
-  <a href="#biology">Explore Biology</a>
-</section>
-
-<section id="biology">
-  <h2 class="section-title">Explore Biology</h2>
-  <p class="intro">
-    Biology is the study of living things. Discover cells,
-    genetics, the human body, and the amazing ecosystems
-    that make up our planet.
-  </p>
-
-  <div class="grid">
-    <article class="card">
-      <div class="picture">🔬</div>
-      <div class="card-content">
-        <h3>Cell Biology</h3>
-        <p>Discover how cells work and what makes up living organisms.</p>
-      </div>
-    </article>
-    <article class="card">
-      <div class="picture">🧬</div>
-      <div class="card-content">
-        <h3>Genetics</h3>
-        <p>Learn about DNA, genes, and inherited traits.</p>
-      </div>
-    </article>
-    <article class="card">
-      <div class="picture">🫀</div>
-      <div class="card-content">
-        <h3>Human Biology</h3>
-        <p>Explore the organs and systems of the human body.</p>
-      </div>
-    </article>
-    <article class="card">
-      <div class="picture">🌎</div>
-      <div class="card-content">
-        <h3>Ecosystems</h3>
-        <p>Discover animals, plants, habitats, and nature.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="games-section" id="games">
-  <h2 class="section-title">Games & Activities 🎮</h2>
-  <p class="intro">Take a break and enjoy some interactive games!</p>
-
-  <input id="search" placeholder="Search games..."
-    oninput="searchGames()">
-
-  <div class="grid" id="gameList">
-    <article class="card game-card">
-      <div class="picture">🧠</div>
-      <div class="card-content">
-        <h3>Biology Quiz</h3>
-        <p>Test your biology knowledge!</p>
-        <button onclick="openGame('quiz')">Play Now</button>
-      </div>
-    </article>
-
-    <article class="card game-card">
-      <div class="picture">🃏</div>
-      <div class="card-content">
-        <h3>Memory Match</h3>
-        <p>Find matching pairs of cards.</p>
-        <button onclick="openGame('memory')">Play Now</button>
-      </div>
-    </article>
-  </div>
-
-  <div id="quiz" class="game-panel">
-    <h2>Biology Quiz 🧠</h2>
-    <p id="question"></p>
-    <div id="answers"></div>
-    <p id="quizResult"></p>
-    <button onclick="nextQuestion()" id="nextButton" class="hidden">Next Question</button>
-  </div>
-
-  <div id="memory" class="game-panel">
-    <h2>Memory Match 🃏</h2>
-    <p>Find all four matching pairs!</p>
-    <div class="memory-grid" id="memoryGrid"></div>
-    <p id="memoryResult"></p>
-    <button onclick="startMemory()">Restart Game</button>
-  </div>
-</section>
-</main>
-
-<footer id="info">
-  <h2>BIOLOGY SPOT</h2>
-  <p>Created by Felicity</p>
-  <p>Contact the Creator</p>
-  <p>Instagram:
-    <a href="https://www.instagram.com/fel_felicityy/"
-       target="_blank" rel="noopener noreferrer">
-       @fel_felicityy
-    </a>
-  </p>
-  <p>Thanks for visiting Biology Spot! 🌿</p>
-  <small>© 2026 Biology Spot</small>
-</footer>
-
-<script>
-function searchGames() {
-  const term = document.getElementById("search").value.toLowerCase();
-  document.querySelectorAll(".game-card").forEach(card => {
-    card.style.display =
-      card.innerText.toLowerCase().includes(term) ? "" : "none";
-  });
+  max-width: 750px;
+  margin: auto;
 }
 
-function openGame(id) {
-  document.querySelectorAll(".game-panel").forEach(panel =>
-    panel.classList.remove("active")
-  );
-  document.getElementById(id).classList.add("active");
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-  if (id === "quiz") showQuestion();
-  if (id === "memory") startMemory();
+.about p {
+  color: #68766a;
+  margin-top: 12px;
 }
 
-// BIOLOGY QUIZ
-const questions = [
-  {q:"What is the basic unit of life?",
-   a:["Cell","Organ","Tissue","Atom"], correct:0},
-  {q:"What molecule carries genetic information?",
-   a:["Glucose","DNA","Water","Protein"], correct:1},
-  {q:"What organ pumps blood around the body?",
-   a:["Lungs","Brain","Heart","Liver"], correct:2},
-  {q:"What process do plants use to make food?",
-   a:["Digestion","Photosynthesis","Respiration","Fermentation"], correct:1},
-  {q:"Which organelle produces much of a cell's energy?",
-   a:["Nucleus","Ribosome","Mitochondrion","Cell wall"], correct:2}
-];
-
-let current = 0;
-let score = 0;
-
-function showQuestion() {
-  document.getElementById("nextButton").classList.add("hidden");
-  document.getElementById("quizResult").innerText = "";
-  const q = questions[current];
-  document.getElementById("question").innerText =
-    (current+1) + ". " + q.q;
-  const box = document.getElementById("answers");
-  box.innerHTML = "";
-  q.a.forEach((answer,i) => {
-    const btn = document.createElement("button");
-    btn.innerText = answer;
-    btn.style.margin = "6px";
-    btn.onclick = () => {
-      if (i === q.correct) {
-        score++;
-        document.getElementById("quizResult").innerText = "Correct! 🌿";
-      } else {
-        document.getElementById("quizResult").innerText =
-          "Not quite! The answer is " + q.a[q.correct] + ".";
-      }
-      box.querySelectorAll("button").forEach(b => b.disabled = true);
-      document.getElementById("nextButton").classList.remove("hidden");
-    };
-    box.appendChild(btn);
-  });
+footer {
+  background: #203d2d;
+  color: white;
+  padding: 35px 8%;
+  text-align: center;
 }
 
-function nextQuestion() {
-  current++;
-  if (current >= questions.length) {
-    document.getElementById("question").innerText =
-      "Quiz complete!";
-    document.getElementById("answers").innerHTML = "";
-    document.getElementById("quizResult").innerText =
-      "You scored " + score + " out of " + questions.length + "!";
-    document.getElementById("nextButton").innerText = "Play Again";
-    document.getElementById("nextButton").onclick = () => {
-      current = 0;
-      score = 0;
-      document.getElementById("nextButton").innerText = "Next Question";
-      document.getElementById("nextButton").onclick = nextQuestion;
-      showQuestion();
-    };
-  } else {
-    showQuestion();
+footer p {
+  color: #d9e3d7;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+footer a {
+  color: #e4d09a;
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-// MEMORY GAME
-const symbols = ["🌱","🧬","🔬","🦋"];
-let first = null;
-let locked = false;
-let matched = 0;
+@media (max-width: 550px) {
+  header {
+    justify-content: center;
+  }
 
-function startMemory() {
-  const grid = document.getElementById("memoryGrid");
-  grid.innerHTML = "";
-  first = null;
-  locked = false;
-  matched = 0;
-  document.getElementById("memoryResult").innerText = "";
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
 
-  [...symbols,...symbols].sort(() => Math.random()-.5).forEach(symbol => {
-    const btn = document.createElement("button");
-    btn.innerText = "?";
-    btn.dataset.symbol = symbol;
-    btn.onclick = () => {
-      if (locked || btn.disabled || btn === first) return;
-      btn.innerText = symbol;
-      if (!first) {
-        first = btn;
-      } else {
-        if (first.dataset.symbol === symbol) {
-          first.disabled = true;
-          btn.disabled = true;
-          first = null;
-          matched++;
-          if (matched === symbols.length) {
-            document.getElementById("memoryResult").innerText =
-              "You found every pair! 🎉";
-          }
-        } else {
-          locked = true;
-          const previous = first;
-          first = null;
-          setTimeout(() => {
-            previous.innerText = "?";
-            btn.innerText = "?";
-            locked = false;
-          },800);
-        }
-      }
-    };
-    grid.appendChild(btn);
+  .topic-grid,
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 55px 6%;
+  }
+
+  .hero {
+    padding: 65px 7%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BIOLOGY <span>SPOT.</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#biology">Biology</a>
+    <a href="#facts">Fun Facts</a>
+    <a href="#games">Games</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <small>Explore • Learn • Discover</small>
+    <h1>Discover the Science of Life.</h1>
+    <p>
+      Welcome to Biology Spot! Explore the amazing world of living
+      things, learn how the human body works, discover cells and
+      ecosystems, and test your knowledge with fun biology games.
+    </p>
+    <a href="#biology" class="main-button">Explore Biology →</a>
+  </div>
+
+  <div class="hero-art">🌿🧬</div>
+</section>
+
+<section class="section" id="biology">
+  <div class="section-heading">
+    <small>Learn something new</small>
+    <h2>Explore Biology</h2>
+    <p>Discover different areas of the science of life.</p>
+  </div>
+
+  <div class="topic-grid">
+    <div class="topic-card">
+      <div class="topic-icon">🔬</div>
+      <h3>Cell Biology</h3>
+      <p>
+        Learn about cells, their structures, and how they work
+        together to keep organisms alive.
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-icon">🧬</div>
+      <h3>Genetics</h3>
+      <p>
+        Explore DNA, genes, inherited traits, and how characteristics
+        pass from parents to offspring.
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-icon">🫀</div>
+      <h3>Human Biology</h3>
+      <p>
+        Discover the organs and body systems that help humans
+        move, breathe, grow, and survive.
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-icon">🌎</div>
+      <h3>Ecosystems</h3>
+      <p>
+        Understand how plants, animals, and environments interact
+        in different ecosystems.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section facts" id="facts">
+  <div class="section-heading">
+    <small>Did you know?</small>
+    <h2>Biology Fun Facts</h2>
+    <p>Science is full of surprising discoveries!</p>
+  </div>
+
+  <div class="fact-grid">
+    <div class="fact">
+      <strong>🧠 Your brain</strong>
+      Your brain contains billions of nerve cells called neurons
+      that send and receive information.
+    </div>
+
+    <div class="fact">
+      <strong>🌱 Plants</strong>
+      Plants use sunlight, water, and carbon dioxide to make
+      their own food through photosynthesis.
+    </div>
+
+    <div class="fact">
+      <strong>🧬 DNA</strong>
+      DNA contains instructions that help determine how living
+      things develop and function.
+    </div>
+  </div>
+</section>
+
+<section class="section games-section" id="games">
+  <div class="section-heading">
+    <small>Learn while you play</small>
+    <h2>Biology Games</h2>
+    <p>Choose a game and test what you know!</p>
+  </div>
+
+  <div class="game-search">
+    <input
+      type="text"
+      id="gameSearch"
+      placeholder="🔎 Search for a game..."
+      oninput="searchGames()"
+    >
+  </div>
+
+  <div class="game-grid" id="gameGrid">
+
+    <div class="game-card" data-name="biology quiz science questions">
+      <div class="game-icon">🧠</div>
+      <h3>Biology Quiz</h3>
+      <p>Answer biology questions and see how much you know.</p>
+      <button class="play-button" onclick="startQuiz()">Play Game</button>
+    </div>
+
+    <div class="game-card" data-name="memory match cards">
+      <div class="game-icon">🃏</div>
+      <h3>Memory Match</h3>
+      <p>Find matching biology symbols and test your memory.</p>
+      <button class="play-button" onclick="startMemory()">Play Game</button>
+    </div>
+
+    <div class="game-card" data-name="cell challenge organelles">
+      <div class="game-icon">🔬</div>
+      <h3>Cell Challenge</h3>
+      <p>Identify cell parts and learn what each one does.</p>
+      <button class="play-button" onclick="startCellGame()">Play Game</button>
+    </div>
+
+  </div>
+
+  <div class="game-area" id="gameArea">
+    <h3 id="gameTitle">Biology Game</h3>
+    <div id="game-content"></div>
+    <button class="close-button" onclick="closeGame()">Close Game</button>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-heading">
+    <small>About this website</small>
+    <h2>Welcome to Biology Spot</h2>
+  </div>
+
+  <div class="about">
+    <p>
+      Biology Spot is a place to explore science in a simple,
+      interesting, and interactive way. Whether you're studying
+      for a biology class or just curious about how life works,
+      there's always something new to discover.
+    </p>
+    <p>
+      Keep exploring, keep learning, and have fun!
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="color:white;">BIOLOGY <span>SPOT.</span></div>
+  <p>Discover the Science of Life.</p>
+  <p>Created by Felicity</p>
+  <p>
+    Instagram:
+    <a href="https://www.instagram.com/fel_felicityy/"
+       target="_blank" rel="noopener noreferrer">@fel_felicityy</a>
+  </p>
+  <p>© 2026 Biology Spot. All rights reserved.</p>
+</footer>
+
+<script>
+const gameArea = document.getElementById("gameArea");
+const gameTitle = document.getElementById("gameTitle");
+const gameContent = document.getElementById("game-content");
+
+function openGame(title) {
+  gameArea.style.display = "block";
+  gameTitle.textContent = title;
+  gameArea.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function closeGame() {
+  gameArea.style.display = "none";
+  gameContent.innerHTML = "";
+}
+
+function searchGames() {
+  const search = document.getElementById("gameSearch").value.toLowerCase();
+  const cards = document.querySelectorAll(".game-card");
+
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    card.style.display = name.includes(search) ? "block" : "none";
   });
 }
+
+/* BIOLOGY QUIZ */
+
+const questions = [
+  {
+    q: "What is the basic unit of life?",
+    a: ["Atom", "Cell", "Organ", "Tissue"],
+    correct: "Cell"
+  },
+  {
+    q: "What molecule carries genetic information?",
+    a: ["DNA", "Water", "Glucose", "Oxygen"],
+    correct: "DNA"
+  },
+  {
+    q: "Which organ pumps blood around the body?",
+    a: ["Lungs", "Brain", "Heart", "Stomach"],
+    correct: "Heart"
+  },
+  {
+    q: "What process do plants use to make food?",
+    a: ["Digestion", "Photosynthesis", "Respiration", "Evaporation"],
+    correct: "Photosynthesis"
+  },
+  {
+    q: "Which part of the cell contains most of its DNA?",
+    a: ["Nucleus", "Cell membrane", "Cytoplasm", "Ribosome"],
+    correct: "Nucleus"
+  }
+];
+
+let questionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+  questionIndex = 0;
+  score = 0;
+  openGame("🧠 Biology Quiz");
+  showQuestion();
+}
+
+function showQuestion() {
+  if (questionIndex >= questions.length) {
+    gameContent.innerHTML = `
+      <h2>You finished!</h2>
+      <p>You got ${score} out of ${questions.length} correct.</p>
+      <p>${score === questions.length
+        ? "Perfect score! Amazing work! 🎉"
+        : "Great job practicing biology! 🌿"}</p>
+      <button onclick="startQuiz()">Play Again</button>
+    `;
+    return;
+  }
+
+  const question = questions[questionIndex];
+
+  gameContent.innerHTML = `
+    <p>Question ${questionIndex + 1} of ${questions.length}</p>
+    <h3>${question.q}</h3>
+    ${question.a.map(answer =>
+      `<button onclick="answerQuestion('${answer.replace(/'/g, "\\'")}')">${answer}</button>`
+    ).join("")}
+    <p id="quizFeedback"></p>
+  `;
+}
+
+function answerQuestion(answer) {
+  const question = questions[questionIndex];
+  const feedback = document.getElementById("quizFeedback");
+
+  if (answer === question.correct) {
+    score++;
+    feedback.textContent = "Correct! Great job! ✓";
+  } else {
+    feedback.textContent = "Not quite! The correct answer is " + question.correct + ".";
+  }
+
+  const buttons = gameContent.querySelectorAll("button");
+  buttons.forEach(button => button.disabled = true);
+
+  const next = document.createElement("button");
+  next.textContent = "Next Question →";
+  next.onclick = () => {
+    questionIndex++;
+    showQuestion();
+  };
+  gameContent.appendChild(next);
+}
+
+/* MEMORY MATCH */
+
+const memorySymbols = ["🧬", "🫀", "🌱", "🔬", "🦠", "🌎"];
+let memoryCards = [];
+let firstCard = null;
+let secondCard = null;
+let locked = false;
+let matches = 0;
+
+function startMemory() {
+  openGame("🃏 Memory Match");
+  memoryCards = [...memorySymbols, ...memorySymbols]
+    .sort(() => Math.random() - 0.5);
+  firstCard = null;
+  secondCard = null;
+  locked = false;
+  matches = 0;
+
+  gameContent.innerHTML = `
+    <p>Find all 6 matching pairs!</p>
+    <div class="memory-grid" id="memoryGrid"></div>
+    <p id="memoryStatus">Matches: 0 / 6</p>
+  `;
+
+  const grid = document.getElementById("memoryGrid");
+
+  memoryCards.forEach((symbol, index) => {
+    const button = document.createElement("button");
+    button.className = "memory-card";
+    button.textContent = "?";
+    button.dataset.symbol = symbol;
+    button.onclick = () => flipCard(button);
+    grid.appendChild(button);
+  });
+}
+
+function flipCard(card) {
+  if (locked || card === firstCard || card.dataset.found === "yes") {
+    return;
+  }
+
+  card.textContent = card.dataset.symbol;
+
+  if (!firstCard) {
+    firstCard = card;
+    return;
+  }
+
+  secondCard = card;
+  locked = true;
+
+  if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+    firstCard.dataset.found = "yes";
+    secondCard.dataset.found = "yes";
+    firstCard = null;
+    secondCard = null;
+    locked = false;
+    matches++;
+
+    document.getElementById("memoryStatus").textContent =
+      "Matches: " + matches + " / 6";
+
+    if (matches === 6) {
+      document.getElementById("memoryStatus").textContent =
+        "You found every pair! Great job! 🎉";
+    }
+  } else {
+    setTimeout(() => {
+      firstCard.textContent = "?";
+      secondCard.textContent = "?";
+      firstCard = null;
+      secondCard = null;
+      locked = false;
+    }, 850);
+  }
+}
+
+/* CELL CHALLENGE */
+
+const cellQuestions = [
+  {
+    q: "Which cell part controls what enters and leaves the cell?",
+    a: ["Nucleus", "Cell membrane", "Mitochondria"],
+    correct: "Cell membrane",
+    info: "The cell membrane controls what enters and leaves the cell."
+  },
+  {
+    q: "Which cell part is often called the powerhouse of the cell?",
+    a: ["Mitochondria", "Ribosome", "Nucleus"],
+    correct: "Mitochondria",
+    info: "Mitochondria help release usable energy for the cell."
+  },
+  {
+    q: "Which cell part contains genetic instructions?",
+    a: ["Cytoplasm", "Nucleus", "Cell wall"],
+    correct: "Nucleus",
+    info: "The nucleus contains most of a cell's DNA."
+  },
+  {
+    q: "Which structure helps plant cells keep their shape?",
+    a: ["Cell wall", "Ribosome", "Mitochondria"],
+    correct: "Cell wall",
+    info: "The cell wall provides support and protection to plant cells."
+  }
+];
+
+let cellIndex = 0;
+let cellScore = 0;
+
+function startCellGame() {
+  cellIndex = 0;
+  cellScore = 0;
+  openGame("🔬 Cell Challenge");
+  showCellQuestion();
+}
+
+function showCellQuestion() {
+  if (cellIndex >= cellQuestions.length) {
+    gameContent.innerHTML = `
+      <h2>Challenge Complete!</h2>
+      <p>Your score: ${cellScore} / ${cellQuestions.length}</p>
+      <button onclick="startCellGame()">Try Again</button>
+    `;
+    return;
+  }
+
+  const item = cellQuestions[cellIndex];
+
+  gameContent.innerHTML = `
+    <p>Question ${cellIndex + 1} of ${cellQuestions.length}</p>
+    <h3>${item.q}</h3>
+    ${item.a.map(answer =>
+      `<button onclick="answerCell('${answer}')">${answer}</button>`
+    ).join("")}
+    <p id="cellFeedback"></p>
+  `;
+}
+
+function answerCell(answer) {
+  const item = cellQuestions[cellIndex];
+  const feedback = document.getElementById("cellFeedback");
+
+  if (answer === item.correct) {
+    cellScore++;
+    feedback.textContent = "Correct! " + item.info;
+  } else {
+    feedback.textContent = "The correct answer is " +
+      item.correct + ". " + item.info;
+  }
+
+  gameContent.querySelectorAll("button").forEach(button => {
+    button.disabled = true;
+  });
+
+  const next = document.createElement("button");
+  next.textContent = "Continue →";
+  next.onclick = () => {
+    cellIndex++;
+    showCellQuestion();
+  };
+  gameContent.appendChild(next);
+}
 </script>
+
 </body>
 </html>
